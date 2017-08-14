@@ -1,6 +1,5 @@
 
-    <!-- jQuery -->
-    <script src="<?php echo $this->asset; ?>jquery/jquery.min.js"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo $this->asset; ?>bootstrap/js/bootstrap.min.js"></script>

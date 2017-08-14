@@ -2,16 +2,15 @@
 
 class AdminImovel extends Admin {
 
-
     protected $model;
 
     function __construct() {
         parent::__construct();
-        $this->model = new NewsModel();
+        $this->model = new ImovelModel();
     }
 
     public function index() {
-        $data['news'] = $this->model->getNews();
+        $data['imoveis'] = $this->model->getImoveis();
         $this->view->load('header');
         $this->view->load('nav');
         $this->view->load('imovel_list', $data);
@@ -20,21 +19,49 @@ class AdminImovel extends Admin {
 
     public function add() {
         $data['msg'] = '';
-        if (filter_input(INPUT_POST, 'add')) {
-            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-            $text = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING);
-            if ($title && $text) {
-                $news = new Noticia($title, $text);
-                if ($this->model->insertNews($news)) {
+        if ($this->filter('add')) {
+
+            $rua = $this->filter('rua');
+            $numero = $this->filter('numero');
+            $complemento = $this->filter('complemento');
+            $cep = $this->filter('cep');
+            $dormitorios = $this->filter('dormitorios');
+            $garagem = $this->filter('garagem');
+            $valor = $this->filter('valor');
+            $area = $this->filter('area');
+            $descricao = $this->filter('descricao');
+            $idTipo = $this->filter('idTipo');
+            $idBairro = $this->filter('idBairro');
+            $idCidade = $this->filter('idCidade');
+            $idEstado = $this->filter('idEstado');
+
+
+            //Testar todos os campos importantes
+            if ($rua) {
+                $imoveis = new Imovel(null, $rua, $numero, $complemento, $cep, $dormitorios, $garagem, $valor, $area, $descricao, $idTipo, $idBairro, $idCidade, $idEstado);
+                if ($this->model->insert($imoveis)) {
                     $this->index();
                     return true;
                 } else {
-                    $data['msg'] = 'Erro ao cadastrar Notícia!';
+                    $data['msg'] = 'Erro ao cadastrar registro!';
                 }
             } else {
                 $data['msg'] = 'Preencha todos os campos!';
             }
         }
+
+        $estadoObj = new EstadoModel();
+        $data['estados'] = $estadoObj->getEstados();
+
+        $cidadeObj = new CidadeModel();
+        $data['cidades'] = $cidadeObj->getCidades();
+
+        $bairroObj = new BairroModel();
+        $data['bairros'] = $bairroObj->getBairros();
+
+        $tipoObj = new TipoModel();
+        $data['tipos'] = $tipoObj->getTipos();
+
         $this->view->load('header');
         $this->view->load('nav');
         $this->view->load('imovel_add', $data);
@@ -42,36 +69,44 @@ class AdminImovel extends Admin {
     }
 
     public function remove($id) {
-        if (filter_input(INPUT_POST, 'del')) {
-            $this->model->removeNews($id);
+        if ($this->filter('del')) {
+            $this->model->remove($id);
             $this->index();
-        } else {
-            $data['news'] = $this->model->getNewsById($id);
-            $this->view->load('header');
-            $this->view->load('nav');
-            $this->view->load('imovel_delete', $data);
-            $this->view->load('footer');
         }
     }
 
     public function update($id) {
         $data['msg'] = '';
-        if (filter_input(INPUT_POST, 'update')) {
-            $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-            $text = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING);
-            if ($title && $text) {
-                $news = new Noticia($title, $text,[],$id);
-                if ($this->model->updateNews($news)) {
+
+        if ($this->filter('update')) {
+
+            $rua = $this->filter('rua');
+            $numero = $this->filter('numero');
+            $complemento = $this->filter('complemento');
+            $cep = $this->filter('cep');
+            $dormitorios = $this->filter('dormitorios');
+            $garagem = $this->filter('garagem');
+            $valor = $this->filter('valor');
+            $area = $this->filter('area');
+            $descricao = $this->filter('descricao');
+            $idTipo = $this->filter('idTipo');
+            $idBairro = $this->filter('idBairro');
+            $idCidade = $this->filter('idCidade');
+            $idEstado = $this->filter('idEstado');
+
+            if ($rua) {
+                $imoveis = new Imovel($id, $rua, $numero, $complemento, $cep, $dormitorios, $garagem, $valor, $area, $descricao, $idTipo, $idBairro, $idCidade, $idEstado);
+                if ($this->model->update($imoveis)) {
                     $this->index();
                     return true;
                 } else {
-                    $data['msg'] = 'Erro ao atualizar Notícia!';
+                    $data['msg'] = 'Erro ao cadastrar registro!';
                 }
             } else {
                 $data['msg'] = 'Preencha todos os campos!';
             }
         }
-        $data['news'] = $this->model->getNewsById($id);
+        $data['imoveis'] = $this->model->getImovelById($id);
         $this->view->load('header');
         $this->view->load('nav');
         $this->view->load('imovel_update', $data);

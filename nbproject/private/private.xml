@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/DAWII/model/UsuarioModel.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/controller/AdminUsuario.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/view/templates/admin/nav.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/model/Usuario.class.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/view/templates/admin/cidade_list.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/view/templates/admin/cidade_add.php</file>
-            <file>file:/C:/xampp/htdocs/DAWII/view/templates/admin/cidade_update.php</file>
+            <file>file:/C:/xampp/htdocs/DAWII/controller/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/DAWII/view/templates/admin/imovel_add.php</file>
+            <file>file:/C:/xampp/htdocs/DAWII/controller/AdminImovel.php</file>
         </group>
     </open-files>
 </project-private>

@@ -1,29 +1,31 @@
 <?php
 
-class AdminBairro extends Admin {
+class AdminTipo extends Admin {
 
     protected $model;
 
     function __construct() {
         parent::__construct();
-        $this->model = new BairroModel();
+        $this->model = new TipoModel();
     }
 
     public function index() {
-        $data['bairro'] = $this->model->getBairros();
+        $data['tipo'] = $this->model->getTipos();
         $this->view->load('header');
         $this->view->load('nav');
-        $this->view->load('bairro_list', $data);
+        $this->view->load('tipo_list', $data);
         $this->view->load('footer');
     }
 
     public function add() {
         $data['msg'] = '';
         if ($this->filter('add')) {
-            $bairro = $this->filter('bairro');
-            if ($bairro) {
-                $bairro = new Bairro($bairro);
-                if ($this->model->insert($bairro)) {
+            $tipo = $this->filter('tipo');
+            if ($tipo) {
+                $tipoObj = new Tipo();
+                $tipoObj->setTipo($tipo);
+                
+                if ($this->model->insert($tipoObj)) {
                     $this->index();
                     return true;
                 } else {
@@ -36,27 +38,35 @@ class AdminBairro extends Admin {
 
         $this->view->load('header');
         $this->view->load('nav');
-        $this->view->load('bairro_add', $data);
+        $this->view->load('tipo_add', $data);
         $this->view->load('footer');
     }
 
     public function removeTudo() {
-        foreach ($_POST['idBairro'] as $idBairro) {
-            $this->model->remove($idBairro);
+        foreach ($_POST['idTipo'] as $idTipo) {
+            $this->model->remove($idTipo);
         }
-
         $this->index();
     }
     
-
+    public function remove($id) {
+        if ($this->filter('del')) {
+            $this->model->remove($id);
+            $this->index();
+        }
+    }    
+    
     public function update($id) {
         $data['msg'] = '';
 
         if ($this->filter('update')) {
-            $bairro = $this->filter('bairro');
-            if ($bairro) {
-                $bairro = new Bairro($bairro, $id);
-                if ($this->model->update($bairro)) {
+            $tipo = $this->filter('tipo');
+            if ($tipo) {
+                $tipoObj = new Tipo();
+                $tipoObj->setId($id);
+                $tipoObj->setTipo($tipo);
+                
+                if ($this->model->update($tipoObj)) {
                     $this->index();
                     return true;
                 } else {
@@ -66,10 +76,10 @@ class AdminBairro extends Admin {
                 $data['msg'] = 'Preencha todos os campos!';
             }
         }
-        $data['bairro'] = $this->model->getBairroById($id);
+        $data['tipo'] = $this->model->getTipoById($id);
         $this->view->load('header');
         $this->view->load('nav');
-        $this->view->load('bairro_update', $data);
+        $this->view->load('tipo_update', $data);
         $this->view->load('footer');
     }
 

@@ -1,35 +1,94 @@
-<?php 
-$news = $data['news'];
+<?php
+$imoveis = $data['imoveis'];
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Notícias</h1>
+                <h1 class="page-header">Imóvel</h1>
             </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-2">            
+            <div class="col-lg-12 col-lg-offset-0">            
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Nova Notícia</h3>
+                        <h3 class="panel-title">Atualizar Imóvel</h3>
                     </div>
 
                     <div class="panel-body ">
                         <div class="row">
-                            <div class="col-lg-12 center">
+                            <div class="col-lg-6 center">
                                 <form role="form" method="post">
+
                                     <div class="form-group">
-                                        <label>Título da Notícia</label>
-                                        <input class="form-control" type='text' name='title'  placeholder="Informe um título" value="<?php echo $news->getTitle()?>">
+                                        <label>Descricao</label>
+                                        <input class="form-control" type='text' name='descricao'   value="<?php echo $imoveis->getDescricao() ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rua</label>
+                                        <input class="form-control" type='text' name='rua'  value="<?php echo $imoveis->getRua() ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Número</label>
+                                        <input class="form-control" type='text' name='numero'  placeholder="Informe o número" value="<?php echo $imoveis->getNumero() ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Complemento</label>
+                                        <textarea  class="form-control"  name='complemento' ><?php echo $imoveis->getComplemento() ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CEP</label>
+                                        <input class="form-control" type='text' name='cep' value="<?php echo $imoveis->getCep() ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nº de dormitorios</label>
+                                        <input class="form-control" type='text' name='dormitorios'  value="<?php echo $imoveis->getDormitorios() ?>">
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label>Garagem</label>
+                                        <input type="checkbox" value="1" name="garagem" <?php if ($imoveis->getGaragem()) echo 'checked="true"'; ?>/>                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Valor</label>
+                                        <input class="form-control" type='text' name='valor'   value="<?php echo $imoveis->getValor() ?>">
                                         <p class="help-block">Informe o Título da Notícia</p>
                                     </div>
                                     <div class="form-group">
-                                        <label>Texto da Notícia</label>
-                                        <textarea class="form-control" rows="3" name='text' placeholder="Texto da notícia"><?php echo $news->getText()?>"</textarea>                    
+                                        <label>Area</label>
+                                        <input class="form-control" type='text' name='area'  value="<?php echo $imoveis->getArea() ?>">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Tipo</label>
+                                        <select name="idTipo">
+                                            <option value="1">Tipo1</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Estado</label>
+                                        <select name="idEstado">
+                                            <option value="1">Estado</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Cidade</label>
+                                        <select name="idCidade">
+                                            <option value="1">Cidade</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Bairro</label>
+                                        <select name="idBairro">
+                                            <option value="7">Bairro</option>
+                                        </select>
+                                    </div>
+
                                     <input type="submit" class="btn btn-default" value='Salvar' name='update' >
                                     <input type="reset" class="btn btn-default" value="Limpar">
                                 </form>                            
@@ -44,15 +103,7 @@ $news = $data['news'];
                         </div>                        
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-2 center">
-                        <a href="<?php echo $this->base_url ?>AdminNews/">
-                            <button type="button" class="btn btn-info btn-circle btn-lg">
-                                <i class="fa fa-arrow-left"></i>&nbsp&nbsp&nbsp&nbspVoltar
-                            </button>                
-                        </a>
-                    </div>
-                </div>
+ 
             </div>
         </div>
     </div>

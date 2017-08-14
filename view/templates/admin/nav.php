@@ -62,6 +62,9 @@
                         <li>
                             <a href="<?php echo $this->base_url ?>AdminCidade/"><i class="fa fa-newspaper-o fa-fw"></i>Cidade</a>
                         </li>  
+                        <li>
+                            <a href="<?php echo $this->base_url ?>AdminTipo/"><i class="fa fa-newspaper-o fa-fw"></i>Tipo</a>
+                        </li>                         
                         
                         <!--  <li>
                               <a href="#"><i class="fa fa-picture-o fa-fw"></i> Media<span class="fa arrow"></span></a>
