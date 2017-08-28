@@ -126,7 +126,7 @@ $imoveis = $data['imoveis'];
             </div>
         </div>
     </div>
-</div>
+
 
 <script>
 $(document).ready(function() {
