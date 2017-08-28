@@ -94,7 +94,7 @@ class AdminImovel extends Admin {
             $idCidade = $this->filter('idCidade');
             $idEstado = $this->filter('idEstado');
 
-            if ($rua) {
+            if ($rua) {echo $id, $rua, $numero, $complemento, $cep, $dormitorios, $garagem, $valor, $area, $descricao, $idTipo, $idBairro, $idCidade, $idEstado;
                 $imoveis = new Imovel($id, $rua, $numero, $complemento, $cep, $dormitorios, $garagem, $valor, $area, $descricao, $idTipo, $idBairro, $idCidade, $idEstado);
                 if ($this->model->update($imoveis)) {
                     $this->index();

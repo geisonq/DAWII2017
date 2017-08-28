@@ -57,6 +57,9 @@ class ImovelModel extends Model {
                 . " id_estado = :idEstado"
                 . " WHERE id = :id";
         
+       
+        
+        print_r($sql);
         return $this->ExecuteCommand($sql, $this->getParans($obj, true));
       
     }

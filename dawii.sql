@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2017 at 09:01 PM
+-- Generation Time: Aug 28, 2017 at 07:43 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -31,6 +31,14 @@ CREATE TABLE `bairro` (
   `bairro` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `bairro`
+--
+
+INSERT INTO `bairro` (`id`, `bairro`) VALUES
+(7, 'Centro'),
+(8, 'gv');
+
 -- --------------------------------------------------------
 
 --
@@ -39,8 +47,15 @@ CREATE TABLE `bairro` (
 
 CREATE TABLE `cidade` (
   `id` int(11) NOT NULL,
-  `estado` varchar(200) NOT NULL
+  `cidade` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cidade`
+--
+
+INSERT INTO `cidade` (`id`, `cidade`) VALUES
+(1, 'Santana do Livramento');
 
 -- --------------------------------------------------------
 
@@ -53,6 +68,13 @@ CREATE TABLE `estado` (
   `estado` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `estado`
+--
+
+INSERT INTO `estado` (`id`, `estado`) VALUES
+(1, 'RS');
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +86,19 @@ CREATE TABLE `imagens` (
   `src` varchar(200) NOT NULL,
   `id_imovel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `imagens`
+--
+
+INSERT INTO `imagens` (`id`, `src`, `id_imovel`) VALUES
+(1, '1.jpg', 5),
+(2, '2.jpg', 5),
+(3, '', 5),
+(4, '', 5),
+(5, '', 5),
+(6, 'android-clean-clouds-colors-flying-1366x768-wallpaper.jpg', 5),
+(7, 'android-clean-clouds-colors-flying-1366x768-wallpaper.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -88,6 +123,14 @@ CREATE TABLE `imovel` (
   `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `imovel`
+--
+
+INSERT INTO `imovel` (`id`, `rua`, `numero`, `complemento`, `cep`, `dormitorios`, `garagem`, `valor`, `area`, `descricao`, `id_tipo`, `id_bairro`, `id_cidade`, `id_estado`) VALUES
+(3, '1', 1, '1', 1, 1, 1, 1, 1, '11', 1, 7, 1, 1),
+(5, ':rua', 1, ':complemento', 123, 1, 1, 1, 1, 'Teste', 1, 7, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +141,20 @@ CREATE TABLE `tipo` (
   `id` int(11) NOT NULL,
   `tipo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tipo`
+--
+
+INSERT INTO `tipo` (`id`, `tipo`) VALUES
+(1, 'Casa'),
+(2, 'Teste'),
+(10, 'dasdas'),
+(11, 'Sei la '),
+(12, 'Si la'),
+(13, 'Sei la'),
+(14, 'Sei la'),
+(15, 'Sei la');
 
 -- --------------------------------------------------------
 
@@ -118,7 +175,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_user`, `nome`, `login`, `senha`, `email`) VALUES
-(1, 'Admin', 'Admin', '202cb962ac59075b964b07152d234b70', 'admin@admin.com');
+(1, 'Admin', 'Admin', '202cb962ac59075b964b07152d234b70', 'admin@admin.com'),
+(2, 'rafa', 'rafa', '202cb962ac59075b964b07152d234b70', 'rafa@rafa.com.br');
 
 --
 -- Indexes for dumped tables
@@ -179,37 +237,37 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `bairro`
 --
 ALTER TABLE `bairro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `imagens`
 --
 ALTER TABLE `imagens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `imovel`
 --
 ALTER TABLE `imovel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
