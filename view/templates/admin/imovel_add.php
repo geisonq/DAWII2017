@@ -17,7 +17,7 @@ $bairros = $data['bairros'];
         <div class="row">
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Imóvel</a></li>
-                <li><a data-toggle="tab" href="#menu2">Fotos</a></li>
+                <li><a class="disabled" href="#menu2">Fotos</a></li>
             </ul>
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active">
@@ -127,8 +127,7 @@ $bairros = $data['bairros'];
                     </div>
 
                     <div id="menu2" class="tab-pane fade">
-                        <h3>Fotos</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                       
                     </div>
 
 

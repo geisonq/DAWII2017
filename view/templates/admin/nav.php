@@ -87,4 +87,12 @@
 
 
     </div>
+    
+    
+<div id="divLoading">
+
+</div>
+    
+    
+    
     <!-- /#wrapper -->

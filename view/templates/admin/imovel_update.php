@@ -1,6 +1,7 @@
 <?php
 $imoveis = $data['imoveis'];
 ?>
+
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -103,8 +104,7 @@ $imoveis = $data['imoveis'];
                         </div>                        
                     </div>
                 </div>
- 
-                
+                 
                   <div id="menu2" class="tab-pane fade">
                      <div class="panel-body">
                         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTablesImagens">
@@ -116,6 +116,21 @@ $imoveis = $data['imoveis'];
                                 </tr>
                             </thead>                            
                         </table>
+                         
+                         <hr>
+                         <h3>Cadastro de Fotos</h3>
+                          <hr>
+                         <form id="formFotos" action="<?php echo $this->url.'/AdminImagens/add/'; ?>" method="post" enctype= multipart/form-data>
+                             <input type="hidden" name="idImovel" value="<?php echo $imoveis->getId(); ?>"/>                             
+                              <div class="form-group">
+                                <label>Arquivo</label>
+                                <input type="file" name="src" />
+                              </div>
+                            <input type="submit" class="btn btn-default" value='Incluir Foto' name='add' >
+                         </form>
+                          
+                        <hr>  
+                        
                     </div>
                         
                   </div>
@@ -131,8 +146,25 @@ $imoveis = $data['imoveis'];
 <script>
 $(document).ready(function() {
     $('#dataTablesImagens').DataTable( {
-        "ajax": "http://localhost/DAWII/AdminImagens/"
-    } );
+         "paging": false,                    
+         "searching": false,
+         "ajax": "<?php echo $this->url;?>/AdminImagens/"
+    } );  
+    var options = { 
+        beforeSubmit:  showRequest,  
+        success:       showResponse   
+    }; 
+  
+    $('#formFotos').ajaxForm(options); 
+   
+    function showRequest(formData, jqForm, options) { 
+        $("#divLoading").show();
+        return true; 
+    } 
+ 
+    function showResponse(responseText, statusText, xhr, $form)  { 
+        $("#divLoading").hide(); 
+    } 
 } );
-</script>
+</script> 
 

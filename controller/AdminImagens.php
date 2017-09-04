@@ -14,6 +14,7 @@ class AdminImagens extends Admin {
     }
 
     public function add() { 
+        sleep(2);
         $data['msg'] = 2;
         if ($this->filter('add')) {
             $idImovel = $this->filter('idImovel');
