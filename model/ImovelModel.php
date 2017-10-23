@@ -2,6 +2,34 @@
 
 class ImovelModel extends Model {
 
+    
+    public function totalImoveis(){
+        $sql = "SELECT count(*) as total FROM imovel";
+        $total = $this->ExecuteQuery($sql, array())[0];
+        
+        return $total['total'];
+    }
+    
+    public function getImoveisPaginador($pagina) {
+        $list = array();
+        $offset = ($pagina*3)-3 ;
+        $sql = "SELECT * FROM imovel limit 3 offset {$offset} ";
+
+        $resultados = $this->ExecuteQuery($sql, array());
+
+        foreach ($resultados as $linha) {
+            $list[] = new Imovel(
+                $linha['id'], $linha['rua'], $linha['numero'], $linha['complemento'], 
+                $linha['cep'], $linha['dormitorios'], $linha['garagem'], $linha['valor'], $linha['area'], $linha['descricao'], $linha['id_tipo'],
+                $linha['id_bairro'], $linha['id_cidade'], $linha['id_estado']
+            );
+        }      
+        return $list;
+    }
+    
+    
+    
+    
     public function getImoveis() {
         $list = array();
         $sql = "SELECT * FROM imovel";

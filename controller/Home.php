@@ -4,12 +4,20 @@ class Home extends Controller{
     private $texto;
 
     public function __construct() {
-        parent::__construct();           
+        parent::__construct();     
+        $this->model = new ImovelModel();
     }
 
-    public function index(){
+    public function index($pagina=1){
+  
+        $total = $this->model->totalImoveis();         
+        $data['total'] = ceil($total/3);
+        
+        $imoveis = $this->model->getImoveisPaginador($pagina);        
+        $data['imoveis'] = $imoveis;     
+            
         $this->view->load('header');
-        $this->view->load('index');
+        $this->view->load('index', $data);
         $this->view->load('footer');
     }
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Justified Nav Template for Bootstrap</title>
+    <title>Imobiliária Livramento</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->asset; ?>css/bootstrap.min.css" rel="stylesheet">

@@ -145,7 +145,7 @@ $imoveis = $data['imoveis'];
 
 <script>
 $(document).ready(function() {
-    $('#dataTablesImagens').DataTable( {
+   var table = $('#dataTablesImagens').DataTable( {
          "paging": false,                    
          "searching": false,
          "ajax": "<?php echo $this->url;?>/AdminImagens/"
@@ -164,6 +164,7 @@ $(document).ready(function() {
  
     function showResponse(responseText, statusText, xhr, $form)  { 
         $("#divLoading").hide(); 
+        table.ajax.reload();
     } 
 } );
 </script> 

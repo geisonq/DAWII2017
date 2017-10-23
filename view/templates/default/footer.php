@@ -1,6 +1,6 @@
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2017 Imobiliária Livramento</p>
       </footer>
 
     </div> <!-- /container -->
