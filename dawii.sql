@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 07:43 PM
+-- Generation Time: Oct 23, 2017 at 09:10 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -98,7 +98,17 @@ INSERT INTO `imagens` (`id`, `src`, `id_imovel`) VALUES
 (4, '', 5),
 (5, '', 5),
 (6, 'android-clean-clouds-colors-flying-1366x768-wallpaper.jpg', 5),
-(7, 'android-clean-clouds-colors-flying-1366x768-wallpaper.jpg', 5);
+(7, 'android-clean-clouds-colors-flying-1366x768-wallpaper.jpg', 5),
+(8, 'android-clean-clouds-colors-flying-1366x768-wallpaper - Copia.jpg', 5),
+(9, 'favicon.ico', 5),
+(10, 'favicon.ico', 5),
+(11, 'favicon.ico', 3),
+(12, 'favicon.ico', 3),
+(13, 'favicon.ico', 3),
+(14, 'applications.html', 3),
+(15, 'texto-em.html', 3),
+(16, 'texto-em.html', 3),
+(17, 'texto-em.html', 3);
 
 -- --------------------------------------------------------
 
@@ -128,8 +138,13 @@ CREATE TABLE `imovel` (
 --
 
 INSERT INTO `imovel` (`id`, `rua`, `numero`, `complemento`, `cep`, `dormitorios`, `garagem`, `valor`, `area`, `descricao`, `id_tipo`, `id_bairro`, `id_cidade`, `id_estado`) VALUES
-(3, '1', 1, '1', 1, 1, 1, 1, 1, '11', 1, 7, 1, 1),
-(5, ':rua', 1, ':complemento', 123, 1, 1, 1, 1, 'Teste', 1, 7, 1, 1);
+(3, '1', 1, '1', 1, 1, 1, 1, 1, 'Teste1', 1, 7, 1, 1),
+(5, ':rua', 1, ':complemento', 123, 1, 1, 1, 1, 'Teste2', 1, 7, 1, 1),
+(10, 'demo', 1, 'demo', 1, 1, 1, 1, 1, 'Teste3', 14, 7, 1, 1),
+(11, 'demo 1', 1, 'demo', 1, 1, 1, 1, 1, 'Teste4', 2, 7, 1, 1),
+(12, 'demo', 1, 'demo', 1, 1, 1, 1, 1, 'Teste5', 14, 7, 1, 1),
+(13, 'demo 1', 1, 'demo', 1, 1, 1, 1, 1, 'Teste6', 2, 7, 1, 1),
+(14, 'demo 1', 1, 'demo', 1, 1, 1, 1, 1, 'Teste7', 2, 7, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -252,12 +267,12 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `imagens`
 --
 ALTER TABLE `imagens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `imovel`
 --
 ALTER TABLE `imovel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tipo`
 --
